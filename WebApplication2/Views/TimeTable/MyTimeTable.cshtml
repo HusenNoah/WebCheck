@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebApplication2.ViewModels.TimeTable>
+
+@{
+    ViewBag.Title = "MyTimeTable";
+}
+
+<h2>MyTimeTable</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saturday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sunday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tuesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wednesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thursday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Friday)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+
+    <tr>
+        @using (Html.BeginForm("SaveTimeTable", "TimeTable", FormMethod.Post))
+        {
+            <td>
+                <input type="text" name="Name" class="form-control" disabled="disabled" value="@item.Name"/>
+            </td>
+            <td>
+                <div class="checkbox">
+                    @Html.CheckBox("Saturday")
+
+                </div>
+            </td>
+            <td>
+                @Html.CheckBox("Sunday")
+            </td>
+            <td>
+                @Html.CheckBox("Monday")
+            </td>
+            <td>
+                @Html.CheckBox("Tuesday")
+            </td>
+            <td>
+                @Html.CheckBox("Wednesday")
+            </td>
+            <td>
+                @Html.CheckBox("Thursday")
+            </td>
+            <td>
+                @Html.CheckBox("Friday")
+            </td>
+            <td>
+               <button type="submit" class="btn btn-success btn-lg">Save Time</button>
+            </td>
+        }
+        </tr>
+        
+}
+
+</table>

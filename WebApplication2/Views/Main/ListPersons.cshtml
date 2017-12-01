@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebApplication2.ViewModels.Customers>
+
+@{
+    ViewBag.Title = "ListPersons";
+}
+
+<h2>ListPersons</h2>
+@if (TempData["Succesfull"] != null)
+{
+    <h3 class="alert alert-success">@TempData["Succesfull"] </h3>
+}@if (TempData["SuccesfullyUpdated"] != null)
+{
+    <h3 class="alert alert-success">@TempData["SuccesfullyUpdated"]</h3>
+}
+<p>
+    @Html.ActionLink("Create", "CreatePerson","Main")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAdres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+
+    { Html.RenderPartial("_ListPersons", item); }
+}
+
+</table>

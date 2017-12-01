@@ -1,0 +1,22 @@
+﻿@model WebApplication2.ViewModels.Customers
+
+<tr>
+    <td>
+        @Model.CustomerName
+    </td>
+    <td>
+       @Model.CustomerAdres
+    </td>
+    <td>
+        @Model.CustomerPhone
+    </td>
+    <td>
+        @Model.Date
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "UpdatePerson", new { id = Model.Id }) |
+        @Html.ActionLink("Details", "DetailPerson", new { id = Model.Id }) |
+        @Html.ActionLink("Delete", "DeletePerson", new { id = Model.Id })
+    </td>
+</tr>
+
