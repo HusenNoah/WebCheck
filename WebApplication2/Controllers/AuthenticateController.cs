@@ -44,5 +44,10 @@ namespace WebApplication2.Controllers
             return RedirectToAction("Login");
         }
 
+        public string Content()
+        {
+            return "Hello";
+        }
+
     }
 }
